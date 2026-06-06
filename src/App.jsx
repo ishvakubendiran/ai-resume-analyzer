@@ -58,35 +58,33 @@ Job Description: ${jobDescription}`
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-blue-400 mb-2">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-blue-950 text-white p-8">
+      <div className="max-w-3xl mx-auto text-center bg-gray-800 rounded-3xl p-8 mt-10 shadow-2xl">
+        <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-3">
           AI Resume Analyzer
         </h1>
         <p className="text-center text-gray-400 mb-8">
-          Paste your resume and get your ATS score instantly
+          Upload your resume · Paste job description · Get ATS match score instantly
         </p>
-        <input
-        type="file"
-        accept=".pdf"
-        onChange={handlePdfUpload}
-        className="mb-4 w-full text-white"
-        />
+        <label className="flex items-center justify-center w-full h-12 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl cursor-pointer mb-4 transition-all duration-300">
+  📄 Upload PDF Resume
+  <input type="file" accept=".pdf" onChange={handlePdfUpload} className="hidden" />
+</label>
         <textarea
-          className="w-full h-64 p-4 bg-gray-800 text-white rounded-xl border border-gray-600"
+          className="w-full h-40 p-4 bg-gray-800 text-white rounded-xl border border-gray-600"
           placeholder="Paste your resume here..."
           value={resume}
           onChange={(e) => setResume(e.target.value)}
         />
         <textarea
         className="w-full h-40 p-4 bg-gray-800 text-white rounded-xl border-gray-600 mt-4"
-        placeholder="Paste jod description here..."
+        placeholder="Paste job description here..."
         value={jobDescription}
         onChange={(e) => setJobDescription(e.target.value)}
         />
         <button
           onClick={analyzeResume}
-          className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl"
+          className="w-full py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-lg rounded-xl transition-all duration-300"
         >
           {loading ? "Analyzing..." : "Analyze Resume"}
         </button>
