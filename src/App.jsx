@@ -5,6 +5,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mj
 function App() {
   const [resume, setResume] = useState("")
   const [result, setResult] = useState("")
+  const [jobDescription, setJobDescription] = useState("")
   const [loading, setLoading] = useState(false)
   const handlePdfUpload = async (e) => {
   const file = e.target.files[0]
@@ -35,12 +36,13 @@ function App() {
         messages: [
           {
             role: "user",
-            content: `Analyze this resume and give:
+            content: `You are an ATS expert. Analyze this resume against the job description and give:
 1. ATS Score out of 100
 2. Top 3 strengths
 3. Top 3 improvements needed
 
-Resume: ${resume}`
+Resume: ${resume}
+Job Description: ${jobDescription}`
           }
         ]
       })
@@ -75,6 +77,12 @@ Resume: ${resume}`
           placeholder="Paste your resume here..."
           value={resume}
           onChange={(e) => setResume(e.target.value)}
+        />
+        <textarea
+        className="w-full h-40 p-4 bg-gray-800 text-white rounded-xl border-gray-600 mt-4"
+        placeholder="Paste jod description here..."
+        value={jobDescription}
+        onChange={(e) => setJobDescription(e.target.value)}
         />
         <button
           onClick={analyzeResume}
