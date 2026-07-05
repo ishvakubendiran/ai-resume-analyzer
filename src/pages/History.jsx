@@ -87,9 +87,9 @@ export default function History() {
                     <span className="text-blue-400 text-sm font-semibold">
                       📅 {new Date(scan.scannedAt).toLocaleString()}
                     </span>
-                    <span className="ml-3 bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded-full">
-                      Scan #{scan.id}
-                    </span>
+                   <span className="ml-3 bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded-full">
+                   Scan #{scan.scanNumber}
+                   </span>
                   </div>
                   {score && (
                     <div className={`border-2 ${getScoreBg(score)} rounded-full w-14 h-14 flex flex-col items-center justify-center`}>
