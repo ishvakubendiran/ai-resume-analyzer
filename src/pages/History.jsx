@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axios";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function History() {
   const [history, setHistory] = useState([]);
@@ -117,7 +118,7 @@ export default function History() {
                   <div className="mt-4 pt-4 border-t border-gray-700">
                     <p className="text-gray-400 text-xs font-semibold uppercase mb-2">Analysis Result</p>
                     <div className="text-gray-300 text-sm prose prose-invert max-w-none">
-                      <ReactMarkdown>{scan.analysisResult}</ReactMarkdown>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{scan.analysisResult}</ReactMarkdown>
                     </div>
                   </div>
                 )}

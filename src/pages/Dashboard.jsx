@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
 import axiosInstance from "../api/axios";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
 
@@ -197,7 +198,7 @@ export default function Dashboard() {
             <div className="text-gray-300 text-sm prose prose-invert max-w-none
               prose-headings:text-white prose-strong:text-white
               prose-li:text-gray-300 prose-p:text-gray-300">
-              <ReactMarkdown>{result}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{result}</ReactMarkdown>
             </div>
           </div>
         )}
